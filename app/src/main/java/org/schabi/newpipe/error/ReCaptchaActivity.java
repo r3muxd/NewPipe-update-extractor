@@ -27,8 +27,6 @@ import org.schabi.newpipe.databinding.ActivityRecaptchaBinding;
 import org.schabi.newpipe.extractor.utils.Utils;
 import org.schabi.newpipe.util.ThemeHelper;
 
-import java.io.UnsupportedEncodingException;
-
 /*
  * Created by beneth <bmauduit@beneth.fr> on 06.12.16.
  *
@@ -185,12 +183,9 @@ public class ReCaptchaActivity extends AppCompatActivity {
         final int abuseStart = url.indexOf("google_abuse=");
         if (abuseStart != -1) {
             final int abuseEnd = url.indexOf("+path");
-
-            
-                String abuseCookie = url.substring(abuseStart + 13, abuseEnd);
-                abuseCookie = Utils.decodeUrlUtf8(abuseCookie);
-                handleCookies(abuseCookie);
-
+            String abuseCookie = url.substring(abuseStart + 13, abuseEnd);
+            abuseCookie = Utils.decodeUrlUtf8(abuseCookie);
+            handleCookies(abuseCookie);
         }
     }
 
