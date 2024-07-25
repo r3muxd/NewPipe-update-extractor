@@ -186,17 +186,11 @@ public class ReCaptchaActivity extends AppCompatActivity {
         if (abuseStart != -1) {
             final int abuseEnd = url.indexOf("+path");
 
-            try {
+            
                 String abuseCookie = url.substring(abuseStart + 13, abuseEnd);
                 abuseCookie = Utils.decodeUrlUtf8(abuseCookie);
                 handleCookies(abuseCookie);
-            } catch (UnsupportedEncodingException | StringIndexOutOfBoundsException e) {
-                if (MainActivity.DEBUG) {
-                    e.printStackTrace();
-                    Log.d(TAG, "handleCookiesFromUrl: invalid google abuse starting at "
-                            + abuseStart + " and ending at " + abuseEnd + " for url " + url);
-                }
-            }
+
         }
     }
 
